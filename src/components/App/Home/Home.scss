@@ -1,0 +1,54 @@
+.shop_info {
+    font-size: 30px;
+}
+
+.home_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_home {
+    width: 400px;
+    height: auto;
+}
+
+.home_list {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(96, 96, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    height: 70px;
+    width: 250px;
+    border: 0;
+    margin-bottom: 70px;
+    margin-top: 50px;
+}
+
+.view_more_button {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.button_div, h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paragraph {
+    font-size: 30px;
+}
