@@ -1,10 +1,12 @@
 import React from "react";
 import "./Home.scss";
-import CardItem from "../../CardItem/CardItem";
 import logo from "../../../images/logo.jpg";
-import PRODUCTS_DATA from "../../ProductsData";
+import HomeItemsList from "./HomeItemsList";
+import HomeCatalog from "./HomeCatalog";
+import ViewMoreHome from "./ViewMoreHome";
 
-const Home = () => {
+
+const Home = ({ showCatalog }) => {
     return (
         <div>
             <div className="home_container">
@@ -18,26 +20,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="home_list">
-                {PRODUCTS_DATA.map(({ brand, model, price, image }, idx) => (
-                    <CardItem
-                        brand= {brand}
-                        model={model}
-                        image={image}
-                        price={price}
-                        key = {idx}
-                        id={idx}
-                    />
-                ))}
-            </div>
-            <div className="button_div">
-                <button>
-                    <a className="view_more_button" href=" ">View more</a>
-                </button>
-            </div>
+            { showCatalog ? <HomeCatalog /> : <HomeItemsList /> }
+            { showCatalog || <ViewMoreHome /> }
             <hr/>
         </div>
-        
     );
 }
 

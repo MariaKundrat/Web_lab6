@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header/Header';
 import Home from './Home/Home';
 import Footer from './Footer/Footer';
 
-function App() {
+
+const App = () => {
+  const [showCatalog, setShowCatalog] = useState(false);
+  
   return (
     <div>
-      <Header />
-      <Home />
+      <Header
+        setShowCatalog = {setShowCatalog}
+        showCatalog = {showCatalog}
+      />
+      <Home showCatalog = {showCatalog} />
       <Footer />
     </div>
   );
