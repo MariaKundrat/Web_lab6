@@ -1,0 +1,44 @@
+.footer_obj, .footer_list, .footer_icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details {
+    margin-left: 200px;
+    font-size: 25px;
+}
+
+.footer_obj a {
+    margin-right: 30px;
+}
+
+a {
+    color: blue;
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+}
+
+p {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_icons {
+    margin-right: 200px;
+}
+
+.footer_icons a.facebook, a.twitter, a.linkedin, a.instagram {
+    margin-right: 50px;
+    font-size: 40px;
+}
+
+.container hr {
+    width: 2650px;
+}
