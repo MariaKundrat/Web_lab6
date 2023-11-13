@@ -1,20 +1,16 @@
 .nav_list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-right: 1000px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .nav_link {
     font-size: 35px;
-    color: black;
-}
-
-.nav_item {
-    margin-right: 150px;
+    color: white;
+    margin: 0px;
 }
 
 .nav_item a {
@@ -25,17 +21,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 250px;
 }
 
-.logo_header {
-    margin-left: 50px;
-    width: 250px;
-    height: auto;
-    display: flex;
+.header_logo {
+    position: absolute;
+    left: 50px;
+
+    .header_img {
+        width: 250px;
+        height: auto;
+        display: flex;
+    }
 }
 
-.header_div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} 
+.nav_container {
+    width: 35%;
+}
