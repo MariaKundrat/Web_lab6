@@ -6,7 +6,7 @@ import { FacebookOutlined, TwitterOutlined, LinkedinOutlined, InstagramOutlined 
 const Footer = () => {
     return (
         <footer>
-            <div className="container">
+            <div className="footer_container">
                 <div className="footer_list">
                     <div className="details">
                         <h2>Детальна інформація</h2>

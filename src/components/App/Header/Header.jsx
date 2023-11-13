@@ -8,31 +8,36 @@ const Header = ({ setShowCatalog, showCatalog }) => {
     const catalogButtonHandler = (event) => {
         event.preventDefault();
         setShowCatalog(true);
-    } 
+    }
+
+    const homeButtonHandler = (event) => {
+        event.preventDefault();
+        setShowCatalog(false);
+    };    
 
     return (
         <header>
             <div className="header_div">
-                <div>
-                    <img className="logo_header" src={logo} alt="logo" />
+                <div className="header_logo">
+                    <img className="header_img" src={logo} alt="logo" />
                 </div>
-                <div className="container">
+                <div className="nav_container">
                     <ul className="nav_list">
                         <li className="nav_item">
-                            <button className="nav_link">Home</button>
+                            <button className="nav_link" onClick={homeButtonHandler}>Home</button>
                         </li>
                         <li className="nav_item">
-                            <button className="nav_link"onClick={catalogButtonHandler}>Catalog</button>
+                            <button className="nav_link" onClick={catalogButtonHandler}>Catalog</button>
                         </li>
                         <li className="nav_item">
                             <button className="nav_link">Cart</button>
                         </li>
                     </ul>
                 </div>
-                { !showCatalog || <Search /> }
+                {!showCatalog || <Search />}
             </div>
             <hr />
-            { !showCatalog || <Filters />}
+            {!showCatalog || <Filters />}
         </header>
     );
 }

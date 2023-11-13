@@ -8,7 +8,7 @@ import ViewMoreHome from "./ViewMoreHome";
 
 const Home = ({ showCatalog }) => {
     return (
-        <div>
+        <div className="home">
             <div className="home_container">
                 <div>
                     <img className="logo_home" src={ logo } alt="logo"/>

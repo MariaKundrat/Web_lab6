@@ -1,8 +1,8 @@
 .filters {
     display: flex;
     align-items: center;
-    justify-content: center;
-    float: left;
+    justify-content: space-between;
+    margin: 35px 60px 35px 60px;
 }
 
 .search_button {
@@ -11,15 +11,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     border-radius: 20px;
     height: 65px;
     width: 200px;
     border: 0;
-    margin-bottom: 20px;
     font-size: 30px;
     text-decoration: none;
     color: white;
+    margin: 0px;
 }
 
 select {
@@ -33,22 +32,14 @@ select {
 
 input {
     height: 47px;
-    width: 100%;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid #ccc;
     font-size: 25px;
 }
 
-.model_filter {
-    margin-right: 150px;
-}
-
-.price_filter {
-    margin-right: 80px;
-}
-
-.brand_filter {
-    margin-right: 150px;
-    margin-left: 50px;
+.filters_list {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
 }
