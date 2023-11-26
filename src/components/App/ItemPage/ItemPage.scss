@@ -1,0 +1,121 @@
+.go_back_button, .add_to_cart_button {
+    margin-top: 0px;
+    background-color: rgb(96, 96, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 85px;
+    width: 220px;
+    border: 0;
+    font-size: 32px;
+    text-decoration: none;
+    color: white;
+    margin: 0px;
+}
+
+.item_page_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.add_to_cart_button {
+    margin-left: 30px;
+}
+
+.button_128, .button_256 {
+    margin-top: 0px;
+    background-color: rgb(96, 96, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 65px;
+    width: 200px;
+    border: 0;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    margin: 0px;
+}
+
+.buttons_gb {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 110%;
+}
+
+.item_page_info h2 {
+    font-size: 75px;
+}
+
+.item_page_paragraph, .price_item_section {
+    font-size: 50px;
+}
+
+.count_of_models {
+    margin-bottom: 40px;
+    font-size: 45px;
+}
+
+.color_of_the_model {
+    margin: 0px;
+    font-size: 45px;
+    font-weight: normal;
+}
+
+.item_page_price {
+    margin-left: 10%;
+    height: 60px;
+    width: 225px;
+}
+
+.item_page_container img {
+    height: 900px;
+    width: auto;
+}
+
+.color_input {
+    margin-left: 10%;
+}
+
+.price_section {
+    margin-left: 700px;
+    font-size: 45px;
+}
+
+.color_field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_page_button_section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price_general_section {
+    margin-right: 500px;
+}
+
+.item_page_item {
+    text-decoration: none;
+}
+
+.calculate_price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.price_general_section ul{
+    padding: 0px;
+    list-style: none;
+}

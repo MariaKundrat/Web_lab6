@@ -1,18 +1,20 @@
-import PRODUCTS_DATA from "../../ProductsData";
+import React from "react";
 import CardItem from "../../CardItem/CardItem";
 import "./HomeItemsList.scss";
 
-const HomeItemsList = () => {
+const HomeItemsList = ({ productsToShow, productsData }) => {
+    const displayedProducts = productsData.slice(0, productsToShow);
+
     return (
         <div className="home_item_list">
-            {PRODUCTS_DATA.map(({ brand, model, price, image }, idx) => (
+            {displayedProducts.map(({ brand, model, price, image }, idx) => (
                 <CardItem
-                    brand= {brand}
+                    brand={brand}
                     model={model}
                     image={image}
                     price={price}
-                    key = {idx}
-                    id={idx}
+                    key={idx + 1}
+                    id={idx + 1}
                 />
             ))}
         </div>

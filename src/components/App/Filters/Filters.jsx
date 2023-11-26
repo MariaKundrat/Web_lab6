@@ -1,38 +1,74 @@
-import React from "react";
-import './Filters.scss';
+import React, { useState } from "react";
+import "./Filters.scss";
+import PRODUCTS_DATA from "../../ProductsData";
 
-const Filters = () => {
+const Filters = ({ applyFilters, setProductsData }) => {
+    const [catalogFilters, setCatalogFilters] = useState({
+        selectedBrand: "",
+        selectedModel: "",
+        selectedPrice: ""
+    });
+
+    const handleApplyFilters = () => {
+        applyFilters(catalogFilters);
+    };
+
+    const handleSelectBrand = (event) => {
+        const brand = event.target.value;
+        const selectedModel = "";
+        setCatalogFilters({ ...catalogFilters, selectedBrand: brand, selectedModel });
+    }
+
+    const handleSelectModel = (event) => {
+        const model = event.target.value;
+        setCatalogFilters({ ...catalogFilters, selectedModel: model });
+    }
+
+    const handleSelectPrice = (event) => {
+        const price = event.target.value;
+        setCatalogFilters({ ...catalogFilters, selectedPrice: price });
+    }
+
+    const getModelsByBrand = (selectedBrand) => {
+        const uniqueModels = [...new Set(PRODUCTS_DATA.filter(product => product.brand === selectedBrand).map(product => product.model))];
+        return uniqueModels;
+    };
+
     return (
-        <div>
+        <div className="filter_home_catalog">
             <div className="filters">
                 <div className="filters_list">
                     <div className="brand_filter">
-                        <select id="brand">
+                        <select id="brand" onChange={handleSelectBrand} >
                             <option value="">Brand</option>
                             <option value="Apple">Apple</option>
                             <option value="Samsung">Samsung</option>
-                            <option value="Xiaomi">Xiaomi</option>
                             <option value="Huawei">Huawei</option>
                             <option value="Poco">Poco</option>
                             <option value="Google">Google</option>
                         </select>
                     </div>
                     <div className="model_filter">
-                            <select id="model">
+                        <select id="model" onChange={handleSelectModel}>
                             <option value="">Model</option>
-                            <option value="Galaxy S21">Galaxy S21</option>
-                            <option value="iPhone 13">iPhone 13</option>
-                            <option value="Pixel 6">Pixel 6</option>
-                            <option value="Magic">Magic</option>
-                            <option value="X3">X3</option>
-                            <option value="Nova 10">Nova 10</option>
+                            {catalogFilters.selectedBrand &&
+                                getModelsByBrand(catalogFilters.selectedBrand).map((model, index) => (
+                                    <option key={index} value={model}>
+                                        {model}
+                                    </option>
+                                ))}
                         </select>
                     </div>
                     <div className="price_filter">
-                        <input type="number" id="price" placeholder="Price $"/>
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Price $"
+                            onChange={handleSelectPrice}
+                        />
                     </div>
                 </div>
-                <button className="search_button"> Apply </button>
+                <button className="search_button" onClick={handleApplyFilters}> Apply </button>
             </div>
             <hr />
         </div>
