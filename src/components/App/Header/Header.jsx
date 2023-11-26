@@ -1,10 +1,11 @@
 import React from "react";
-import './Header.scss';
+import "./Header.scss";
 import logo from "../../../images/logo.jpg";
 import { Filters } from "../Filters";
 import { Search } from "../Search";
+import PRODUCTS_DATA from "../../ProductsData";
 
-const Header = ({ setShowCatalog, showCatalog }) => {
+const Header = ({ setShowCatalog, showCatalog, setProductsData, productsData }) => {
     const catalogButtonHandler = (event) => {
         event.preventDefault();
         setShowCatalog(true);
@@ -13,7 +14,51 @@ const Header = ({ setShowCatalog, showCatalog }) => {
     const homeButtonHandler = (event) => {
         event.preventDefault();
         setShowCatalog(false);
-    };    
+    };
+    
+    const applyFilters = (catalogFilters) => {
+        console.log('catalogFilters: ', catalogFilters);
+        const filterKeys = Object.entries(catalogFilters);
+        console.log('filterKeys: ', filterKeys);
+        let filteredProducts = [...PRODUCTS_DATA];
+
+        PRODUCTS_DATA.forEach(product => {
+            const { selectedBrand, selectedModel, selectedPrice } = catalogFilters;
+
+            if (selectedBrand) {
+                filteredProducts = filteredProducts.filter(product => product.brand === selectedBrand);
+            }
+            
+            if (selectedModel) {
+                filteredProducts = filteredProducts.filter(product => product.model === selectedModel);
+            }
+            
+            if (selectedPrice) {
+                filteredProducts = filteredProducts.filter(product => product.price <= parseInt(selectedPrice));
+            }
+
+            return setProductsData(filteredProducts);
+        });
+
+        const getUniqueProducts = (filteredProducts) => {
+            const uniqueProductsIds = [];
+            const uniqueProducts = [];
+
+            filteredProducts.forEach(product => {
+                const isNotUnique = uniqueProductsIds.includes(product.id);
+                console.log('isNotUnique: ', isNotUnique);
+                !isNotUnique && uniqueProductsIds.push(product.id);
+                !isNotUnique && uniqueProducts.push(product);
+            })
+
+            return uniqueProducts;
+        }
+
+        console.log('filteredProducts: ', filteredProducts);
+        const uniqueProducts = getUniqueProducts(filteredProducts);
+
+        return uniqueProducts;
+    };
 
     return (
         <header>
@@ -34,10 +79,10 @@ const Header = ({ setShowCatalog, showCatalog }) => {
                         </li>
                     </ul>
                 </div>
-                {!showCatalog || <Search />}
+                {!showCatalog || <Search setProductsData = {setProductsData} productsData = {productsData} />}
             </div>
             <hr />
-            {!showCatalog || <Filters />}
+            {!showCatalog || <Filters applyFilters={applyFilters} />}
         </header>
     );
 }
