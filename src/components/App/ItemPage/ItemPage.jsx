@@ -1,8 +1,14 @@
 import React from "react";
 import "./ItemPage.scss";
+import { useDispatch } from "react-redux";
+import { addTosmartphone } from "../../../Redux/Reducers/SmartphoneSlice";
 
 const ItemPage = ({ itemPageData, setItemPageData }) => {
-    const {image, brand, model, price} = itemPageData;
+    const { image, brand, model, price } = itemPageData;
+    const dispatch = useDispatch();
+    const handleAddToCart = (itemPageData) => {
+        dispatch(addTosmartphone(itemPageData));
+    }
 
     const handleGoBack = (event) => {
         event.preventDefault();
@@ -36,36 +42,36 @@ const ItemPage = ({ itemPageData, setItemPageData }) => {
                     </div>
                     <div className="color_field">
                         <p className="color_of_the_model">Color</p>
-                            <div className="color_input">
-                                <select id="color">
-                                    <option value="">Color</option>
-                                    <option value="White">White</option>
-                                    <option value="Black">Black</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Gold">Gold</option>
-                                    <option value="Blue">Blue</option>
-                                    <option value="Violet">Violet</option>
-                                </select>
-                            </div>
+                        <div className="color_input">
+                            <select id="color">
+                                <option value="">Color</option>
+                                <option value="White">White</option>
+                                <option value="Black">Black</option>
+                                <option value="Red">Red</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Violet">Violet</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div className="calculate_price">
-                    <div>
-                        <p className="price_section">Gereral price: </p>
-                    </div>
-                    <div className="price_general_section">
-                        <ul className="item_page_button_section">
-                            <li className="item_page_item">
-                                <button className="go_back_button" onClick={handleGoBack}>Go back</button>
-                            </li>
-                            <li className="item_page_item">
-                                <button className="add_to_cart_button">Add to cart</button>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+            <div className="calculate_price">
+                <div>
+                    <p className="price_section">Gereral price: </p>
+                </div>
+                <div className="price_general_section">
+                    <ul className="item_page_button_section">
+                        <li className="item_page_item">
+                            <button className="go_back_button" onClick={handleGoBack}>Go back</button>
+                        </li>
+                        <li className="item_page_item">
+                            <button className="add_to_cart_button" onClick={() => handleAddToCart(itemPageData)}>Add to cart</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
     );
 }
 
