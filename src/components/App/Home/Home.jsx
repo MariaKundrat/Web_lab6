@@ -3,10 +3,16 @@ import "./Home.scss";
 import logo from "../../../images/logo.jpg";
 import ItemPage from "../ItemPage/ItemPage";
 import HomePaginatedView from "../../HomePaginatedView/HomePaginatedView";
+import { ShoppingCart } from "../ShoppingCart";
 
 const Home = ({ showCatalog, productsData }) => {
     const [productsToShow, setProductsToShow] = useState(3);
     const [itemPageData, setItemPageData] = useState(null);
+    const [showShoppingCart, setShowShoppingCart] = useState(false);
+
+    const handleCartButtonClick = () => {
+        setShowShoppingCart(true);
+    };
 
     const handleViewMoreClick = () => {
         setProductsToShow(productsToShow + 3);
@@ -25,19 +31,23 @@ const Home = ({ showCatalog, productsData }) => {
                     </div>
                 </div>
             </div>
-            {itemPageData
-                ? <ItemPage
-                    setItemPageData = {setItemPageData}
-                    itemPageData = {itemPageData}
-                />
-                : <HomePaginatedView
-                    productsToShow = {productsToShow} 
-                    handleViewMoreClick = {handleViewMoreClick}
-                    productsData = {productsData}
-                    showCatalog = {showCatalog}
-                    setItemPageData = {setItemPageData}
-                />
-            }
+
+            {showShoppingCart ? (
+                <ShoppingCart />
+            ) : (
+                itemPageData
+                    ? <ItemPage
+                        setItemPageData={setItemPageData}
+                        itemPageData={itemPageData}
+                    />
+                    : <HomePaginatedView
+                        productsToShow={productsToShow}
+                        handleViewMoreClick={handleViewMoreClick}
+                        productsData={productsData}
+                        showCatalog={showCatalog}
+                        setItemPageData={setItemPageData}
+                    />
+            ) }
             <hr />
         </div>
     );
