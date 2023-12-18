@@ -1,0 +1,36 @@
+.model_s, .brand_s, .price_s, .quantity_s {
+    font-size: 45px;
+    font-weight: 650;
+}
+
+.increment {
+    margin-right: 35px;
+}
+
+.button_s {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elem_s {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.increment, .decrement {
+    font-size: 30px;
+    font-weight: 550;
+    color: #ffffff;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.shopping {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 650;
+}

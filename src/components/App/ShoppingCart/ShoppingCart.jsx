@@ -11,6 +11,10 @@ const ShoppingCart = ({ showShoppingCart, setShowShoppingCart, setShowCatalog })
 
     const smartphoneItems = useSelector((state) => state.smartphone.smartphoneItems);
 
+    const totalAmount = smartphoneItems.reduce((total, { price, smartphoneQuantity }) => {
+        return total + price * smartphoneQuantity;
+    }, 0);
+
     return (
         <div>
             {smartphoneItems.map(({ id, brand, model, price, image, smartphoneQuantity }) => (
@@ -25,8 +29,7 @@ const ShoppingCart = ({ showShoppingCart, setShowShoppingCart, setShowCatalog })
                 />
             ))}
 
-            <p className="shopping">Shopping Cart</p>
-            <p className="total">Total amount: $</p>
+            <p className="total">Total amount: {totalAmount} $</p>
             <div className="shopping_cart_buttons">
                 <button className="back_s" onClick={handleBackToCatalog}>Back to Catalog</button>
                 <button className="continue_s">Continue</button>
